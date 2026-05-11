@@ -158,7 +158,7 @@ def verificar(dicho, esperado):
     else:
         print(Fore.RED + f"❌ Dijiste: '{dicho}' — Era: '{esperado}'")
         return False
-    
+
 def jugar():
     print(Fore.YELLOW + banner)
 
