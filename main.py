@@ -8,7 +8,7 @@ import random
 init(autoreset=True)
 
 sample_rate = 44100  
-duration = 3
+duration = 2.5
 VIDAS = 3
 
 banner = """
