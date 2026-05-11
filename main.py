@@ -84,7 +84,6 @@ words = {
     {"es": "Celebración",  "en": "celebration"},
     {"es": "Transformación","en": "transformation"},
 ],
-
 "experto": [
     {"es": "Ambigüedad",      "en": "ambiguity"},
     {"es": "Perspectiva",     "en": "perspective"},
@@ -107,7 +106,6 @@ words = {
     {"es": "Confidencialidad","en": "confidentiality"},
     {"es": "Responsabilidad", "en": "responsibility"},
 ],
-
 "nativo": [
     {"es": "Efímero",              "en": "ephemeral"},
     {"es": "Perspicaz",            "en": "insightful"},
@@ -164,13 +162,13 @@ def verificar(dicho, esperado):
 def jugar():
     print(Fore.YELLOW + banner)
 
-    print(Fore.WHITE + "🎯 Selecciona un nivel de dificultad:")
+    print(Fore.WHITE + "🎯 Ingrese el numero del nivel de dificultad:")
     print("  1. 😊 Fácil")
     print("  2. 😐 Medio")
     print("  3. 😈 Difícil")
     print("  4. 🎓 Experto")
     print("  5. 🦅 Nativo")
-    opcion = input(Fore.WHITE + "\nIngresa el número de tu elección: ")
+    opcion = input(Fore.WHITE + "\nIngresa el numero de tu elección: ")
 
     niveles = {"1": "facil", "2": "medio", "3": "dificil", "4": "experto", "5": "nativo"}
     nivel = niveles.get(opcion, "facil")
