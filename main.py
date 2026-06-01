@@ -7,9 +7,6 @@ import random
 
 init(autoreset=True)
 
-# ─────────────────────────────────────────
-# CONSTANTES — Cambia estos valores fácilmente
-# ─────────────────────────────────────────
 SAMPLE_RATE = 44100
 DURATION    = 2.5
 VIDAS       = 3
