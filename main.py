@@ -21,7 +21,6 @@ BANNER = """
 ╚══════════════════════════════════╝
 """
 
-# Mapeo de opción → clave del diccionario y cantidad de preguntas
 NIVELES = {
     "1": ("facil",   5,  "😊 Fácil"),
     "2": ("medio",   8,  "😐 Medio"),
@@ -30,9 +29,6 @@ NIVELES = {
     "5": ("nativo",  15, "🦅 Nativo"),
 }
 
-# ─────────────────────────────────────────
-# PALABRAS por nivel
-# ─────────────────────────────────────────
 WORDS = {
     "facil": [
         {"es": "Perro",  "en": "dog"},   {"es": "Gato",   "en": "cat"},
@@ -96,10 +92,6 @@ WORDS = {
     ],
 }
 
-
-# ─────────────────────────────────────────
-# FUNCIÓN: Grabar audio del micrófono
-# ─────────────────────────────────────────
 def grabar():
     """Graba DURATION segundos desde el micrófono y retorna un buffer WAV."""
     print(Fore.CYAN + "🎙️  Habla ahora...")
@@ -116,10 +108,6 @@ def grabar():
     buffer.seek(0)  # Vuelve al inicio del buffer para que se pueda leer después
     return buffer
 
-
-# ─────────────────────────────────────────
-# FUNCIÓN: Reconocer voz desde el buffer
-# ─────────────────────────────────────────
 def reconocer(buffer):
     """Convierte el audio en texto usando Google Speech Recognition."""
     recognizer = sr.Recognizer()
@@ -133,10 +121,6 @@ def reconocer(buffer):
         print(Fore.RED + f"⚠️  Error del servicio: {e}")
         return None
 
-
-# ─────────────────────────────────────────
-# FUNCIÓN: Verificar si la respuesta es correcta
-# ─────────────────────────────────────────
 def verificar(dicho, esperado):
     """Compara lo que dijo el usuario con la respuesta correcta."""
     if dicho == esperado.lower():
@@ -145,10 +129,6 @@ def verificar(dicho, esperado):
     print(Fore.RED + f"❌ Dijiste: '{dicho}' — Era: '{esperado}'")
     return False
 
-
-# ─────────────────────────────────────────
-# FUNCIÓN: Pedir nivel con validación
-# ─────────────────────────────────────────
 def seleccionar_nivel():
     """Muestra el menú de niveles y retorna (clave_nivel, cantidad_preguntas)."""
     print(Fore.WHITE + "🎯 Selecciona el nivel de dificultad:")
@@ -164,10 +144,6 @@ def seleccionar_nivel():
         # Si la opción no es válida, vuelve a preguntar
         print(Fore.RED + "⚠️  Opción inválida. Elige un número del 1 al 5.")
 
-
-# ─────────────────────────────────────────
-# FUNCIÓN: Mostrar el estado de una pregunta
-# ─────────────────────────────────────────
 def mostrar_pregunta(numero, total, palabra, vidas, streak):
     """Imprime el encabezado de cada pregunta con vidas y racha."""
     print(Fore.CYAN + f"\n{'='*40}")
@@ -180,10 +156,6 @@ def mostrar_pregunta(numero, total, palabra, vidas, streak):
     if streak >= 2:
         print(Fore.YELLOW + f"🔥 Racha: {streak}")
 
-
-# ─────────────────────────────────────────
-# FUNCIÓN: Mostrar resumen final
-# ─────────────────────────────────────────
 def mostrar_resumen(puntos, total):
     """Imprime el resultado al terminar la partida."""
     print(Fore.CYAN + f"\n{'='*40}")
@@ -196,10 +168,6 @@ def mostrar_resumen(puntos, total):
     else:
         print(Fore.RED + "💪 ¡No te rindas! Inténtalo de nuevo.")
 
-
-# ─────────────────────────────────────────
-# FUNCIÓN PRINCIPAL: Bucle del juego
-# ─────────────────────────────────────────
 def jugar():
     """Controla el flujo principal del juego. Usa un while en vez de recursión."""
     print(Fore.YELLOW + BANNER)
@@ -240,10 +208,6 @@ def jugar():
             print(Fore.CYAN + "\n👋 ¡Hasta luego! Keep learning! 🦜")
             break  # Sale del while limpiamente
 
-
-# ─────────────────────────────────────────
-# PUNTO DE ENTRADA
-# ─────────────────────────────────────────
 if __name__ == "__main__":
     # Solo corre el juego si ejecutas este archivo directamente.
     # Si otro archivo hace "import juego_traductor", no se ejecuta solo.
